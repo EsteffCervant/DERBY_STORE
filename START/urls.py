@@ -5,7 +5,6 @@ from START.views import (
     template1, 
     template2, 
     template3,
-    productos
 )
 
 urlpatterns = [
@@ -13,6 +12,5 @@ urlpatterns = [
     path('', inicio),
     path('deportes/', template1),
     path('llantas-accesorios/', template2),
-    path('compra/', template3),
-    path('productos/<str:Deporte>/<str:Marca>/<int:Talla>/', productos, name='productos'),
+    path('compra/', template3)
 ]

@@ -47,19 +47,6 @@ def template3 (request):
     render_template = template.render(datos)
     return HttpResponse(render_template)
 
-##def productos_lista(request):
-  ##  productos = Patines.objects.all()  # O puedes filtrar por ciertas condiciones
-    ##return render(request, 'productos.html', {'productos': productos})
-
-
-def productos (request, Deporte, Marca, Talla):
-    patines = Patines(deporte=Deporte, marca=Marca, talla=Talla)
-    patines.save()
-    return render(request,'productos.html', {'patines': patines})
-    
-    #(request, 'inicio/productos.html', {'patines': patines})
-    #return render(request,'productos.html', {})
-
 
 
     
