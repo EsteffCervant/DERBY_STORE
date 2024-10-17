@@ -4,7 +4,7 @@ from START.views import (
     inicio, 
     template1, 
     template2, 
-    template3, 
+    template3,
     productos
 )
 
