@@ -1,6 +1,9 @@
 from django.http import HttpResponse
 from django.template import Template, Context, loader
 from datetime import datetime
+from django.shortcuts import render
+from START.models import Patines
+#from inicio.forms import CrearAutoFormulario, BuscarAutoFormulario, EditarAutoFormulario
 
 
 def vista (request):
@@ -8,8 +11,7 @@ def vista (request):
 
 
 def inicio (request):
-    return HttpResponse('INICIO')
-
+    return render(request, 'index.html')
 
 def template1 (request):    
     file_template = open(r'templates\template1.html')
@@ -44,3 +46,20 @@ def template3 (request):
     template = loader.get_template('template3.html')
     render_template = template.render(datos)
     return HttpResponse(render_template)
+
+def productos_lista(request):
+    productos = Patines.objects.all()  # O puedes filtrar por ciertas condiciones
+    return render(request, 'productos.html', {'productos': productos})
+
+
+def productos (request, Deporte, Marca, Talla):
+    patines = Patines(deporte=Deporte, marca=Marca, talla=Talla)
+    patines.save()
+    return render(request,'productos.html', {'patines': patines})
+    
+    #(request, 'inicio/productos.html', {'patines': patines})
+    #return render(request,'productos.html', {})
+
+
+
+    
