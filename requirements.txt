@@ -1,4 +1,7 @@
+2da_pre-entrega @ file:///C:/Users/cerva/OneDrive/Escritorio/Curso%20Python/Clases/dist/2da_pre_entrega-0.0.1.tar.gz#sha256=3af2ab33589a774649f8e248a2990356d2e342ceb978735fee696cb4b36ae7ec
 asgiref==3.8.1
 Django==5.1.2
+ECG_2pre-entrega @ file:///C:/Users/cerva/OneDrive/Escritorio/Curso%20Python/Clases/dist/ecg_2pre_entrega-0.0.1.tar.gz#sha256=89dbd0dbac6928c0c15bf0a9fde71711d5a22c120fd5c2c3bab6f2e5be2c98f9
+setuptools==75.1.0
 sqlparse==0.5.1
 tzdata==2024.2
