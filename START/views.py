@@ -48,10 +48,10 @@ def template3 (request):
     return HttpResponse(render_template)
 
 
-def crear_patines (request):
-    patines=Patines(Deporte='Patinaje de hielo', Marca='Ultrasport', Talla='6')
+def crear_patines (request, Deporte, Marca, Talla):
+    patines=Patines(Deporte=Deporte, Marca=Marca, Talla=Talla)
     patines.save()
-    return render(request, 'creacion_patines.html', {})
+    return render(request, 'creacion_patines.html', {'patines': patines})
 
 
 

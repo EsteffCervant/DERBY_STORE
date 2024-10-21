@@ -14,5 +14,5 @@ urlpatterns = [
     path('deportes/', template1),
     path('llantas-accesorios/', template2),
     path('compra/', template3),
-    path('creacion-patines/', crear_patines)
+    path('crear-patines/<str:Deporte>/<str:Marca>/<int:Talla>/', crear_patines)
 ]
