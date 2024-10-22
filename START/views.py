@@ -13,16 +13,8 @@ def vista (request):
 def inicio (request):
     return render(request, 'index.html')
 
-def template1 (request):    
-    file_template = open(r'templates\template1.html')
-    template = Template(file_template.read())
-    file_template.close()
-    
-    contexto = Context()
-    
-    render_template = template.render(contexto)
-    
-    return HttpResponse(render_template)
+def template1 (request):  
+    return render(request, template_name='template1.html')
 
 
 def template2 (request):    
