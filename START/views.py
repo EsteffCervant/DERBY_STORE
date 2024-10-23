@@ -18,15 +18,7 @@ def template1 (request):
 
 
 def template2 (request):    
-    file_template = open(r'templates\template2.html')
-    template = Template(file_template.read())
-    file_template.close()
-    
-    contexto = Context()
-    
-    render_template = template.render(contexto)
-    
-    return HttpResponse(render_template)
+    return render(request, template_name='template2.html')
 
 
 def template3 (request):
