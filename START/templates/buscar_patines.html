@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> BUSCAR: </h1>
+
+<form action ={% url 'buscar_patines' %}>
+    {{form}}
+
+<p>
+    Deporte:
+    <input type='text' name='Deporte'>
+    <input type='submit' value='Buscar'>
+</p>
+
+</form>
+
+{% if patiness %}
+<ul>
+    {% for patines in patiness %}
+    <li>{{patines}}</li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>Sin Inventario.</p>
+{% endif %}
+
+
+{% comment "" %}
+    <form action ={% url 'buscar_patines' %} method='POST'>
+        {% csrf_token %}
+
+<p>
+        Deporte:
+        <input type='text' name='Deporte'>
+</p>     
+<p>
+    Marca:   
+    <input type='text' name='Marca'>
+</p>
+<p>
+    Talla:   
+    <input type='number' name='Talla'>
+</p>  
+
+
+        <input type='submit' value='Formulario'>
+        <button>Enviar</button>
+    
+    </form>
+{% endcomment %}    
+</body>
+</html>
