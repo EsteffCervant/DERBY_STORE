@@ -38,5 +38,9 @@ def crear_patines (request, Deporte, Marca, Talla):
     return render(request, 'creacion_patines.html', {'patines': patines})
 
 
+def about_me (request):  
+    return render(request, template_name='about_me.html')
+
+
 
     
