@@ -1,9 +1,15 @@
 from django import forms
 
-class AgregarPatinesForm(forms.Form):
+
+class FormularioBase(forms.Form):
     Deporte = forms.CharField(max_length=22)
     Marca = forms.CharField(max_length=18)
-    Talla = forms.IntegerField()
+    Talla = forms.IntegerField()  
+
+class AgregarPatinesForm(FormularioBase):...
+    
+    
+class EditarPatinesForm(FormularioBase):...
     
 
 class BuscarPatinesForm(forms.Form):

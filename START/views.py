@@ -3,7 +3,7 @@ from django.template import Template, Context, loader
 from datetime import datetime
 from django.shortcuts import render, redirect
 from START.models import Patines
-from START.forms import AgregarPatinesForm, BuscarPatinesForm
+from START.forms import AgregarPatinesForm, BuscarPatinesForm, EditarPatinesForm
 
 
 def vista (request):
@@ -77,5 +77,25 @@ def ver_patines (request, id):
     return render(request, 'ver_patines.html', {'patines': patines})
 
 
+def eliminar_patines (request, id):
+    patines = Patines.objects.get(id=id)
+    patines.delete()
+    return redirect('buscar_patines')
 
+
+def editar_patines (request, id):
+    patines = Patines.objects.get(id=id)
     
+    formulario = EditarPatinesForm(initial={'Deporte': patines.Deporte, 'Marca': patines.Marca, 'Talla': patines.Talla})
+    
+    if request.method == 'POST':
+        formulario = EditarPatinesForm(request.POST)
+        if formulario.is_valid():
+            patines.Deporte = formulario.cleaned_data.get('Deporte')
+            patines.Marca = formulario.cleaned_data.get('Marca')
+            patines.Talla = formulario.cleaned_data.get('Talla')
+            
+            patines.save()
+            return redirect ('buscar_patines')
+    
+    return render(request, 'editar_patines.html', {'patines': patines, 'form': formulario})
