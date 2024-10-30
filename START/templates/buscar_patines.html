@@ -22,36 +22,12 @@
 {% if patiness %}
 <ul>
     {% for patines in patiness %}
-    <li>{{patines}}</li>
+    <li>{{patines}} | <a href= {% url 'ver_patines' patines.id %}>Ver mas</a> | </li>
     {% endfor %}
 </ul>
 {% else %}
 <p>Sin Inventario.</p>
 {% endif %}
 
-
-{% comment "" %}
-    <form action ={% url 'buscar_patines' %} method='POST'>
-        {% csrf_token %}
-
-<p>
-        Deporte:
-        <input type='text' name='Deporte'>
-</p>     
-<p>
-    Marca:   
-    <input type='text' name='Marca'>
-</p>
-<p>
-    Talla:   
-    <input type='number' name='Talla'>
-</p>  
-
-
-        <input type='submit' value='Formulario'>
-        <button>Enviar</button>
-    
-    </form>
-{% endcomment %}    
 </body>
 </html>

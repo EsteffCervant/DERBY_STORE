@@ -1,5 +1,5 @@
 from django.urls import path
-from START.views import (vista, inicio, template1, template2, template3, crear_patines, about_me, buscar_patines)
+from START.views import (vista, inicio, template1, template2, template3, crear_patines, about_me, buscar_patines, ver_patines)
 
 
 urlpatterns = [
@@ -11,5 +11,6 @@ urlpatterns = [
     path('crear-patines/<str:Deporte>/<str:Marca>/<int:Talla>/', crear_patines, name='crear_patines'),
     path('buscar-patines/', buscar_patines, name='buscar_patines'),
     path('crear-patines/', crear_patines, name='crear_patines'),
+    path('ver-patines/<int:id>/', ver_patines, name='ver_patines'),
     path('about-me/', about_me, name='about_me')
 ]

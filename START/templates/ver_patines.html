@@ -1,0 +1,17 @@
+{% block main_text %}
+VER PATINES:
+{% endblock main_text %}
+
+{% block main_uptext %}
+<ul>
+    <p><il>Deporte: {{patines.Deporte}}</il><p>
+    <p> <il>Marca: {{patines.Marca}}</il><p>
+    <p><il>Talla: {{patines.Talla}}</il><p>
+</ul>
+
+<ul>
+    <h4>| <a href= {% url 'buscar_patines' %}>Volver</a> | </h4>
+    </ul>
+
+{% endblock main_uptext %}
+

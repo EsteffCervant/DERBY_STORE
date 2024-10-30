@@ -72,5 +72,10 @@ def crear_patines (request):
     return render(request, 'crear_patines.html', {'form': formulario})
 
 
+def ver_patines (request, id):
+    patines = Patines.objects.get(id=id)
+    return render(request, 'ver_patines.html', {'patines': patines})
+
+
 
     
