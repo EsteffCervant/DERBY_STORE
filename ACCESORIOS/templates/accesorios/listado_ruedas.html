@@ -10,24 +10,33 @@
         <h4>| <a href= {% url 'inicio' %}>Volver</a> | </h4>
         </ul>
 
-    <h1> Listado ruedas: </h1>
+<a class="nav-link" href={% url 'ACCESORIOS:crear_ruedas' %}> <h2>Agregar modelo de Ruedas</h2></a>
 
-<a class="nav-link" href={% url 'ACCESORIOS:crear_ruedas' %}>Agregar modelo de Ruedas</a>
-
-{% if ruedass %}
-<ul>
-    {% for ruedas in ruedass %}
-    <li>{{ruedas}} 
-        {% comment %}        | <a href= {% url 'ver_ruedas' ruedas.id %}>Ver más</a>
-        | <a href= {% url 'editar_ruedas' ruedas.id %}>Editar</a>
-        | <a href= {% url 'eliminar_ruedas' ruedas.id %}>Eliminar</a> {% endcomment %}
-    </li>
-    {% endfor %}
-</ul>
-{% else %}
-<p>Sin Inventario</p>
-{% endif %}
-
+<h3> Listado ruedas: </h3>
+<table>
+    <thead>
+        <tr>
+            <th>Dureza</th>
+            <th>Perfil</th>
+            <th>Compuesto</th>
+            <th>Talla</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for rueda in ruedas %}
+        <tr>
+            <td>{{ rueda.Dureza }}</td>
+            <td>{{ rueda.Perfil }}</td>
+            <td>{{ rueda.Compuesto }}</td>
+            <td>{{ rueda.Talla }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="4">No hay ruedas registradas.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 
 </body>
 </html>
