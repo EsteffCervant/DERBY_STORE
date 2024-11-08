@@ -1,0 +1,18 @@
+{%comment%}
+{% extends 'base.html' %}{%endcomment%}
+
+{% block title_head %}
+Cerrar sesión
+{% endblock title_head %}
+
+{% block h1_header %}
+Cerraste sesión correctamente
+{% endblock h1_header %}
+
+{% block main %}
+
+<ul>
+    <h4>| <a href= {% url 'inicio' %}>Inicio</a> | </h4>
+</ul>  
+
+{% endblock main %}

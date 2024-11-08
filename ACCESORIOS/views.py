@@ -9,7 +9,7 @@ from django.urls import reverse_lazy
 class CrearRuedas(CreateView):
     model = ruedas
     template_name = 'accesorios/crear_ruedas.html'
-    success_url = reverse_lazy('accesorios:listado_ruedas')
+    success_url = reverse_lazy('ACCESORIOS:listado_ruedas')
     fields = ['Dureza', 'Perfil', 'Compuesto', 'Talla']
     
     
