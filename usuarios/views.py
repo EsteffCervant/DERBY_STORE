@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import PasswordChangeView
 from django.urls import reverse_lazy
-
+from usuarios.models import DatosExtra
 
 def login(request):
     
@@ -19,6 +19,7 @@ def login(request):
             
             django_login(request, usuario)
             
+            DatosExtra.objects.get_or_create(user=usuario)
             return redirect('inicio')
             
     return render(request, 'usuarios/login.html', {'form': formulario})
@@ -39,11 +40,16 @@ def register(request):
 
 @login_required
 def editar_perfil(request):
-    formulario = FormularioEdicionPerfil(instance=request.user)
+    datos_extra = request.user.datosextra
+    formulario = FormularioEdicionPerfil(instance=request.user, initial={'avatar': datos_extra.avatar})
     
     if request.method == 'POST':
-        formulario = FormularioEdicionPerfil(request.POST, instance=request.user)
+        formulario = FormularioEdicionPerfil(request.POST, request.FILES,instance=request.user)
         if formulario.is_valid():
+            
+            new_avatar = formulario.cleaned_data.get('avatar')
+            datos_extra.avatar = new_avatar if new_avatar else datos_extra.avatar
+            datos_extra.save()
             
             formulario.save()
             
