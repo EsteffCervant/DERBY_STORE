@@ -4,6 +4,7 @@ from datetime import datetime
 from django.shortcuts import render, redirect
 from START.models import Patines
 from START.forms import AgregarPatinesForm, BuscarPatinesForm, EditarPatinesForm
+from django.contrib.auth.decorators import login_required
 
 
 def vista (request):
@@ -76,13 +77,13 @@ def ver_patines (request, id):
     patines = Patines.objects.get(id=id)
     return render(request, 'ver_patines.html', {'patines': patines})
 
-
+@login_required
 def eliminar_patines (request, id):
     patines = Patines.objects.get(id=id)
     patines.delete()
     return redirect('buscar_patines')
 
-
+@login_required
 def editar_patines (request, id):
     patines = Patines.objects.get(id=id)
     

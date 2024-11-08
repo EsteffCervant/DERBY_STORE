@@ -1,42 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stock Ruedas</title>
-</head>
-<body>
-    <ul>
-        <h4>| <a href= {% url 'inicio' %}>Volver</a> | </h4>
-        </ul>
+{% comment %} {% extends "base.html" %}{% endcomment %}
+{% block title_head %}
+Listado Ruedas
+{% endblock title_head %}
+{% block h1_header %}Listado Ruedas{% endblock h1_header %}
+{% block main %}
 
-<a class="nav-link" href={% url 'ACCESORIOS:crear_ruedas' %}> <h2>Agregar modelo de Ruedas</h2></a>
 
-<h3> Listado ruedas: </h3>
-<table>
-    <thead>
-        <tr>
-            <th>Dureza</th>
-            <th>Perfil</th>
-            <th>Compuesto</th>
-            <th>Talla</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for rueda in ruedas %}
-        <tr>
-            <td>{{ rueda.Dureza }}</td>
-            <td>{{ rueda.Perfil }}</td>
-            <td>{{ rueda.Compuesto }}</td>
-            <td>{{ rueda.Talla }}</td>
-        </tr>
-        {% empty %}
-        <tr>
-            <td colspan="4">No hay ruedas registradas.</td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+<a class="navbar-brand" href={% url 'ACCESORIOS:crear_ruedas' %}>Agregar modelo de Ruedas</a>
 
-</body>
-</html>
+
+{% if ruedas %}
+<ul>
+    {% for rueda in ruedas %}
+    <li>{{ rueda }}
+        | <a href="{% url 'ACCESORIOS:ver_ruedas' rueda.id %}">Ver más</a>
+        | <a href="{% url 'ACCESORIOS:editar_ruedas' rueda.id %}">Editar</a>
+        | <a href="{% url 'ACCESORIOS:eliminar_ruedas' rueda.id %}">Eliminar</a>
+    </li>
+{% endfor %}
+</ul>
+{% else %}
+<p>No hay ruedas registradas.</p>
+{% endif %}
+
+{% endblock main %}

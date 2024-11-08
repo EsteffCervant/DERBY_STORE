@@ -1,0 +1,17 @@
+{%comment%}
+
+{% extends "base.html" %}{%endcomment%}
+{% block title_head %}
+Editar Ruedas
+{% endblock title_head %}
+{% block h1_header %}Editar Ruedas{% endblock h1_header %}
+{% block main %}
+
+<form action={% url 'ACCESORIOS:editar_ruedas' ruedas.id %} method="POST">
+    {% csrf_token %}
+    {{form}}
+
+    <input type="submit" value="Editar">
+</form>
+
+{% endblock main %}

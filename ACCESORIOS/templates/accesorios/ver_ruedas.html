@@ -1,17 +1,18 @@
-{% block main_text %}
-VER RUEDAS:
-{% endblock main_text %}
 
-{% block main_uptext %}
+{%comment%}
+
+{% extends "base.html" %}{%endcomment%}
+{% block title_head %}
+Ver Ruedas
+{% endblock title_head %}
+{% block h1_header %}{{ruedas}}{% endblock h1_header %}
+{% block main %}
+
 <ul>
-    <p><il>Dureza: {{ruedas.Dureza}}</il><p>
-    <p> <il>Perfil: {{ruedas.Perfil}}</il><p>
-    <p><il>Compuesto: {{ruedas.Compuesto}}</il><p>
-    <p><il>Talla: {{ruedas.Talla}}</il><p>
-
+    <li>Dureza: {{ruedas.Dureza}}</il>
+    <li>Perfil: {{ruedas.Perfil}}</il>
+    <il>Compuesto: {{ruedas.Compuesto}}</il>
+    <il>Talla: {{ruedas.Talla}}</il>
 </ul>
 
-
-
-{% endblock main_uptext %}
-
+{% endblock main %}

@@ -1,0 +1,17 @@
+{%comment%}
+
+{% extends "base.html" %}{%endcomment%}
+{% block title_head %}
+Eliminar Ruedas
+{% endblock title_head %}
+{% block h1_header %}Eliminar Ruedas{% endblock h1_header %}
+{% block main %}
+
+<form action={% url 'ACCESORIOS:eliminar_ruedas' ruedas.id %} method="POST">
+    {% csrf_token %}
+    <p>¿Desea eliminar las ruedas? {{ruedas}}?</p>
+
+    <input type="submit" value="Confirmar">
+</form>
+
+{% endblock main %}
