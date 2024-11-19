@@ -10838,7 +10838,7 @@ p {
 }
 
 .page-section {
-  padding: 6rem 0;
+  padding: 1rem 0;
 }
 .page-section h2.section-heading, .page-section .section-heading.h2 {
   font-size: 2.5rem;
@@ -10895,7 +10895,16 @@ p {
   text-transform: uppercase;
 }
 #mainNav .navbar-brand img {
-  height: 1.5rem;
+  width: 50px; /* Ancho de la imagen */
+  height: 50px; /* Alto de la imagen */
+  object-fit: cover; /* Asegura que la imagen se ajuste bien al contenedor */
+  border-radius: 50%; /* Mantiene el diseño circular */;
+}
+#mainNav .navbar-brand .logo {
+  width: 70px; /* Ancho de la imagen */
+  height: 70px; /* Alto de la imagen */
+  object-fit: cover; /* Asegura que la imagen se ajuste bien al contenedor */
+  border-radius: 50%; /* Mantiene el diseño circular */
 }
 #mainNav .navbar-nav .nav-item .nav-link {
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -10920,7 +10929,17 @@ p {
     transition: font-size 0.3s ease-in-out;
   }
   #mainNav .navbar-brand img {
-    height: 2rem;
+    width: 50px; /* Ancho de la imagen */
+    height: 50px; /* Alto de la imagen */
+    object-fit: cover; /* Asegura que la imagen se ajuste bien al contenedor */
+    border-radius: 50%; /* Mantiene el diseño circular */
+    transition: height 0.3s ease-in-out;
+  }
+  #mainNav .navbar-brand .logo {
+    width: 70px; /* Ancho de la imagen */
+    height: 70px; /* Alto de la imagen */
+    object-fit: cover; /* Asegura que la imagen se ajuste bien al contenedor */
+    border-radius: 50%; /* Mantiene el diseño circular */
     transition: height 0.3s ease-in-out;
   }
   #mainNav.navbar-shrink {
@@ -10933,7 +10952,16 @@ p {
   }
   #mainNav.navbar-shrink .navbar-brand svg,
   #mainNav.navbar-shrink .navbar-brand img {
-    height: 1.5rem;
+    width: 50px; /* Ancho de la imagen */
+    height: 50px; /* Alto de la imagen */
+    object-fit: cover; /* Asegura que la imagen se ajuste bien al contenedor */
+    border-radius: 50%; /* Mantiene el diseño circular */;
+  }
+  #mainNav.navbar-shrink .navbar-brand .logo {
+    width: 60px; /* Ancho de la imagen */
+    height: 60px; /* Alto de la imagen */
+    object-fit: cover; /* Asegura que la imagen se ajuste bien al contenedor */
+    border-radius: 50%; /* Mantiene el diseño circular */
   }
   #mainNav .navbar-nav .nav-item {
     margin-right: 1rem;
@@ -10953,7 +10981,7 @@ header.masthead {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 5px;
   background-attachment: scroll;
   background-position: center center;
 }

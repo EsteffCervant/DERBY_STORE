@@ -22,17 +22,6 @@ def template2 (request):
     return render(request, template_name='template2.html')
 
 
-def template3 (request):
-    Fecha = datetime.now()
-    
-    datos = {'Fecha': Fecha    
-    }
-    
-    template = loader.get_template('template3.html')
-    render_template = template.render(datos)
-    return HttpResponse(render_template)
-
-
 def crear_patines (request, Deporte, Marca, Talla):
     patines=Patines(Deporte=Deporte, Marca=Marca, Talla=Talla)
     patines.save()
