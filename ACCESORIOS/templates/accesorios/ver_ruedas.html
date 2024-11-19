@@ -1,18 +1,30 @@
+{% extends "base.html" %}
 
-{%comment%}
-
-{% extends "base.html" %}{%endcomment%}
 {% block title_head %}
 Ver Ruedas
 {% endblock title_head %}
+
+<!-- Vacía el contenido del masthead -->
+{% block header %}{% endblock header %}
+{% block main_uptext %}{% endblock main_uptext %}
+{% block main_text %}{% endblock main_text %}
+{% block categorias %}{% endblock categorias %}
+{% block vista_about %}{% endblock vista_about %}
+{% block contact %}{% endblock contact %}
 {% block h1_header %}{{ruedas}}{% endblock h1_header %}
+
+
 {% block main %}
+<div class="mt-5">
+    <li><h2 class="text-center">Ver Ruedas</h2>
+    </li>
+    <ul>
+        <p><il>Dureza: {{ruedas.Dureza}}</il><p>
+        <p><il>Perfil: {{ruedas.Perfil}}</il><p>
+        <p><il>Compuesto: {{ruedas.Compuesto}}</il><p>
+        <p><il>Talla: {{ruedas.Talla}}</il><p>
+    </ul>
 
 <ul>
-    <li>Dureza: {{ruedas.Dureza}}</il>
-    <li>Perfil: {{ruedas.Perfil}}</il>
-    <il>Compuesto: {{ruedas.Compuesto}}</il>
-    <il>Talla: {{ruedas.Talla}}</il>
-</ul>
-
-{% endblock main %}
+    <h4>| <a href= {% url 'ACCESORIOS:listado_ruedas' %}>Volver</a> | </h4>
+</ul>{% endblock main %}

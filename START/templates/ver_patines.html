@@ -1,17 +1,27 @@
-{% block main_text %}
-VER PATINES:
-{% endblock main_text %}
+{% extends "base.html" %}
 
-{% block main_uptext %}
-<ul>
-    <p><il>Deporte: {{patines.Deporte}}</il><p>
-    <p> <il>Marca: {{patines.Marca}}</il><p>
-    <p><il>Talla: {{patines.Talla}}</il><p>
-</ul>
+{% block title_head %}
+Ver Patines
+{% endblock title_head %}
 
-<ul>
-    <h4>| <a href= {% url 'buscar_patines' %}>Volver</a> | </h4>
+<!-- Vacía el contenido del masthead -->
+{% block header %}{% endblock header %}
+{% block main_uptext %}{% endblock main_uptext %}
+{% block main_text %}{% endblock main_text %}
+{% block categorias %}{% endblock categorias %}
+{% block vista_about %}{% endblock vista_about %}
+{% block contact %}{% endblock contact %}
+
+{% block main %}
+<div class="mt-5">
+    <li><h2 class="text-center">Ver Patines</h2>
+    </li>
+    <ul>
+        <p><il>Deporte: {{patines.Deporte}}</il><p>
+        <p><il>Marca: {{patines.Marca}}</il><p>
+        <p><il>Talla: {{patines.Talla}}</il><p>
     </ul>
-
-{% endblock main_uptext %}
-
+    
+    <ul>
+        <h4>| <a href= {% url 'buscar_patines' %}>Volver</a> | </h4>
+        </ul>{% endblock main %}

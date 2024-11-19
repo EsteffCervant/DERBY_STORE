@@ -1,21 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1> CREAR: </h1>
+{% extends "base.html" %}
 
-    <form action ={% url 'crear_patines' %} method='POST'>
+{% block title_head %}
+Crear Patines
+{% endblock title_head %}
+
+<!-- Vacía el contenido del masthead -->
+{% block header %}{% endblock header %}
+{% block main_uptext %}{% endblock main_uptext %}
+{% block main_text %}{% endblock main_text %}
+{% block categorias %}{% endblock categorias %}
+{% block vista_about %}{% endblock vista_about %}
+{% block contact %}{% endblock contact %}
+
+{% block main %}
+<div class="mt-5">
+    <li><h2 class="text-center">Crear Patines</h2>
+    </li>
+    <form action="{% url 'crear_patines' %}" method="POST" class="mt-4">
         {% csrf_token %}
-
 
 {{form}}
         <input type='submit' value='Agregar'>
-        
-    
-    </form>
-</body>
-</html>
+    </form>    
+{% endblock main %}

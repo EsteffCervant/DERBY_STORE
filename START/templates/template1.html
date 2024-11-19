@@ -1,20 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-<h1>DEPORTES:</h1>
-<p>
-    <p> <il>Patinaje artístico<p>
-        <p>Patinaje en línea<p>
-            <p>Patinaje de velocidad<p>
-                <p>Patinaje de hielo<p>
-                    <p>Patinaje de salto<p>
-                        <p>Roller Derby<p></il>
+{% extends "base.html" %}
+{% load static %}
+{% block title_head %}
+Deportes
+{% endblock title_head %}
 
-</p>
-</body>
-</html>
+<!-- Vacía el contenido del masthead -->
+{% block header %}{% endblock header %}
+{% block main_uptext %}{% endblock main_uptext %}
+{% block main_text %}{% endblock main_text %}
+{% block categorias %}{% endblock categorias %}
+{% block contact %}{% endblock contact %}
+{% block vista_about %}{% endblock vista_about %}
+
+
+{% block main %}
+<div class="mt-5">
+    <li><h4 class="text-center">Deportes</h4>
+    </li>
+    <ul>
+        <p><il>Patinaje artístico</il><p>
+            <p><il>Patinaje en línea</il><p>
+            <p><il>Patinaje de velocidad</il><p>
+            <p><il>Patinaje de hielo</il><p>
+            <p><il>Patinaje de salto</il><p>
+            <p><il>Roller Derby</il><p>
+            
+    </ul>
+    
+    <ul>
+        <h4>| <a href= {% url 'buscar_patines' %}>Búsqueda Patines por Deportes</a> | </h4>
+        </ul>{% endblock main %}

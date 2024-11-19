@@ -1,27 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    ABOUT ME:
+{% extends "base.html" %}
+{% load static %}
+{% block title_head %}
+About Me
+{% endblock title_head %}
 
-    <p>¡Hola! Me llamo Estefania, vivo en Ciudad de México, México.<p>
-        <p>Estudié Ingeniería en Negocios y Gestión Empresarial, me he enfocado y desarrollado en el Análisis de Datos,
-        me gustaría entrar hacia el área de Business Intelligence.<p>
-    <p>
-        
-        
-    <p>Cosas que me gustan:<p>
-        <p>Ir a la playa<p>
-        <p>Tomar té<p>
-        <p>Patinar en patines<p>
-        <p>Viajar<p>
-    <p>
-    <p>Por ahora me enfoco en estudiar Inglés, python y una certificación de Analista de Datos.<p>
+<!-- Vacía el contenido del masthead -->
+{% block header %}{% endblock header %}
+{% block main_uptext %}{% endblock main_uptext %}
+{% block main_text %}{% endblock main_text %}
+{% block categorias %}{% endblock categorias %}
+{% block contact %}{% endblock contact %}
 
 
-</body>
-</html>
+{% block vista_about %}
+<div class="text-center mt-5">
+    <h1>About Me</h1>
+    <img src={% static "assets/img/about/1.jpg" %} alt="..." class="rounded-circle img-fluid" style="width: 200px; height: 200px;">
+    <p class="text-center mt4">¡Hola! Mi nombre es Estefania, vivo en Ciudad de México, México.
+        Estudié Ingeniería en Negocios y Gestión Empresarial, 
+        me he enfocado y desarrollado en el Análisis de Datos, me gustaría entrar hacia el área de Business Intelligence.
+    </p>
+    <h5>Me gusta:</h5>
+                                    <ul><p>Ir a la playa</p></ul>
+                                    <ul><p>Tomar té</p></ul>
+                                    <ul><p>Patinar en patines</p></ul>
+                                    <ul><p>Viajar</p></ul>
+                            
+                                    <p>Por ahora me enfoco en estudiar Inglés, python y una certificación de Analista de Datos.</p>
+</div> 
+
+{% endblock vista_about %}

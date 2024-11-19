@@ -1,17 +1,26 @@
-{%comment%}
+{% extends "base.html" %}
 
-{% extends "base.html" %}{%endcomment%}
 {% block title_head %}
 Editar Ruedas
 {% endblock title_head %}
-{% block h1_header %}Editar Ruedas{% endblock h1_header %}
+
+<!-- Vacía el contenido del masthead -->
+{% block header %}{% endblock header %}
+{% block main_uptext %}{% endblock main_uptext %}
+{% block main_text %}{% endblock main_text %}
+{% block categorias %}{% endblock categorias %}
+{% block vista_about %}{% endblock vista_about %}
+{% block contact %}{% endblock contact %}
+
 {% block main %}
+<div class="mt-5">
+    <li><h2 class="text-center">Editar Ruedas</h2>
+    </li>
+    <form action={% url 'ACCESORIOS:editar_ruedas' ruedas.id %} method="POST">
+        {% csrf_token %}
+{{form}}
 
-<form action={% url 'ACCESORIOS:editar_ruedas' ruedas.id %} method="POST">
-    {% csrf_token %}
-    {{form}}
-
-    <input type="submit" value="Editar">
-</form>
+        <input type='submit' value='Editar'>
+    </form>    
 
 {% endblock main %}

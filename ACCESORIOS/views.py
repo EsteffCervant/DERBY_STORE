@@ -29,12 +29,12 @@ class VerRuedas(LoginRequiredMixin, DetailView):
 class EditarRuedas(LoginRequiredMixin, UpdateView):
     model = ruedas
     template_name = "accesorios/editar_ruedas.html"
-    success_url = reverse_lazy('accesorios:listado_ruedas')
+    success_url = reverse_lazy('ACCESORIOS:listado_ruedas')
     fields = ['Dureza', 'Perfil', 'Compuesto', 'Talla']
     
     
 class EliminarRuedas(DeleteView):
     model = ruedas
     template_name = "accesorios/eliminar_ruedas.html"
-    success_url = reverse_lazy('accesorios:listado_ruedas')
+    success_url = reverse_lazy('ACCESORIOS:listado_ruedas')
     

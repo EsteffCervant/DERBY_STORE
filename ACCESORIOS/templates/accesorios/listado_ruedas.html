@@ -1,26 +1,41 @@
-{% comment %} {% extends "base.html" %}{% endcomment %}
+{% extends "base.html" %}
+
 {% block title_head %}
-Listado Ruedas
+Listado de Ruedas
 {% endblock title_head %}
-{% block h1_header %}Listado Ruedas{% endblock h1_header %}
+
+<!-- Vacía el contenido del masthead -->
+{% block header %}{% endblock header %}
+{% block main_uptext %}{% endblock main_uptext %}
+{% block main_text %}{% endblock main_text %}
+{% block categorias %}{% endblock categorias %}
+{% block vista_about %}{% endblock vista_about %}
+{% block contact %}{% endblock contact %}
+
 {% block main %}
-
-
-<a class="navbar-brand" href={% url 'ACCESORIOS:crear_ruedas' %}>Agregar modelo de Ruedas</a>
-
+<div class="mt-5">
+    <h2 class="text-center">Ruedas en inventario</h2>
+    <p>
+    </p>   
+    <h2 class="text.center">
+        <a href={% url 'ACCESORIOS:crear_ruedas' %}>Agregar modelo de Ruedas</a>
+    </h2>
+    
 
 {% if ruedas %}
-<ul>
-    {% for rueda in ruedas %}
-    <li>{{ rueda }}
-        | <a href="{% url 'ACCESORIOS:ver_ruedas' rueda.id %}">Ver más</a>
-        | <a href="{% url 'ACCESORIOS:editar_ruedas' rueda.id %}">Editar</a>
-        | <a href="{% url 'ACCESORIOS:eliminar_ruedas' rueda.id %}">Eliminar</a>
-    </li>
+    <h3 class="mt-5">Resultados:</h3>
+    <ul class="list-group">
+        {% for rueda in ruedas %}
+        <li class="list-group-item">
+            {{ rueda }}
+            | <a href="{% url 'ACCESORIOS:ver_ruedas' rueda.id %}">Ver más</a>
+            | <a href="{% url 'ACCESORIOS:editar_ruedas' rueda.id %}">Editar</a>
+            | <a href="{% url 'ACCESORIOS:eliminar_ruedas' rueda.id %}">Eliminar</a>
+        </li>
 {% endfor %}
-</ul>
-{% else %}
-<p>No hay ruedas registradas.</p>
-{% endif %}
-
+    </ul>
+    {% else %}
+    <p class="mt-3 text-muted">No hay ruedas registradas.</p>
+    {% endif %}
+</div>
 {% endblock main %}

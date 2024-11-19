@@ -1,26 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1> EDITAR:  </h1>
-    <h2> Modelo {{patines}}: </h2>
+{% extends "base.html" %}
 
-    <form action ={% url 'editar_patines' patines.id %} method='POST'>
+{% block title_head %}
+Editar Patines
+{% endblock title_head %}
+<h2> Modelo {{patines}}: </h2>
+
+<!-- Vacía el contenido del masthead -->
+{% block header %}{% endblock header %}
+{% block main_uptext %}{% endblock main_uptext %}
+{% block main_text %}{% endblock main_text %}
+{% block categorias %}{% endblock categorias %}
+{% block vista_about %}{% endblock vista_about %}
+{% block contact %}{% endblock contact %}
+
+{% block main %}
+<div class="mt-5">
+    <li><h2 class="text-center">Editar Patines</h2>
+    </li>
+    <form action="{% url 'editar_patines' patines.id %}" method="POST" class="mt-4">
         {% csrf_token %}
-
 
 {{form}}
         <input type='submit' value='Actualizar'>
-        
-    
-    </form>
+    </form>    
 
-    <ul>
-        <h4>| <a href= {% url 'buscar_patines' %}>Volver al Inventario</a> | </h4>
-        </ul>    
-</body>
-</html>
+
+    <ul class='rigth'>
+        <h4>
+            <a href= {% url 'buscar_patines' %}>Volver a Búsqueda</a>
+        </h4>
+    </ul>
+{% endblock main %}

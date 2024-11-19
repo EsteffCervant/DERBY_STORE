@@ -1,16 +1,25 @@
-{%comment%}
-{% extends "base.html" %}{%endcomment%}
+{% extends "base.html" %}
+
 {% block title_head %}
 Crear Ruedas
 {% endblock title_head %}
-{% block h1_header %}Crear Ruedas{% endblock h1_header %}
+
+<!-- Vacía el contenido del masthead -->
+{% block header %}{% endblock header %}
+{% block main_uptext %}{% endblock main_uptext %}
+{% block main_text %}{% endblock main_text %}
+{% block categorias %}{% endblock categorias %}
+{% block vista_about %}{% endblock vista_about %}
+{% block contact %}{% endblock contact %}
+
 {% block main %}
+<div class="mt-5">
+    <li><h2 class="text-center">Crear Ruedas</h2>
+    </li>
+    <form action="{% url 'ACCESORIOS:crear_ruedas' %}" method="POST" class="mt-4">
+        {% csrf_token %}
 
-<form action={% url 'ACCESORIOS:crear_ruedas' %} method="POST">
-    {% csrf_token %}
-    {{form}}
-
-    <input type="submit" value="Crear">
-</form>
-
+{{form}}
+        <input type='submit' value='Agregar'>
+    </form>    
 {% endblock main %}

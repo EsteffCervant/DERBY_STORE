@@ -18,10 +18,6 @@ def template1 (request):
     return render(request, template_name='template1.html')
 
 
-def template2 (request):    
-    return render(request, template_name='template2.html')
-
-
 def crear_patines (request, Deporte, Marca, Talla):
     patines=Patines(Deporte=Deporte, Marca=Marca, Talla=Talla)
     patines.save()

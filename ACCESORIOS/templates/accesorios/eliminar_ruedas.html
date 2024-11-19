@@ -1,17 +1,33 @@
-{%comment%}
+{% extends "base.html" %}
 
-{% extends "base.html" %}{%endcomment%}
 {% block title_head %}
 Eliminar Ruedas
 {% endblock title_head %}
+
+<!-- Vacía el contenido del masthead -->
+{% block header %}{% endblock header %}
+{% block main_uptext %}{% endblock main_uptext %}
+{% block main_text %}{% endblock main_text %}
+{% block categorias %}{% endblock categorias %}
+{% block vista_about %}{% endblock vista_about %}
+{% block contact %}{% endblock contact %}
 {% block h1_header %}Eliminar Ruedas{% endblock h1_header %}
+
+
 {% block main %}
+<div class="mt-5">
+    <li><h2 class="text-center">Eliminar Ruedas</h2>
+    </li>
+    <form action={% url 'ACCESORIOS:eliminar_ruedas' ruedas.id %} method="POST">
+        {% csrf_token %}
+        <p>
+        </p>
+        
+        <h3>
+            <p>¿Desea eliminar las ruedas? {{ruedas}}?</p>
+        </h3>
 
-<form action={% url 'ACCESORIOS:eliminar_ruedas' ruedas.id %} method="POST">
-    {% csrf_token %}
-    <p>¿Desea eliminar las ruedas? {{ruedas}}?</p>
-
-    <input type="submit" value="Confirmar">
+        <input type="submit" value="Confirmar">
 </form>
 
 {% endblock main %}
