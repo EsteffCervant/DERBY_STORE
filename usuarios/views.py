@@ -1,12 +1,15 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, UserChangeForm
 from django.contrib.auth import authenticate, login as django_login
-from usuarios.forms import FormularioDeCreacionDeUsuario, FormularioEdicionPerfil
+from usuarios.forms import FormularioDeCreacionDeUsuario, FormularioEdicionPerfil, UserEditForm, ProfileEditForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import PasswordChangeView
 from django.urls import reverse_lazy
-from usuarios.models import DatosExtra
+from usuarios.models import DatosExtra, UserProfile
+from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib.auth import update_session_auth_hash
+
 
 def login(request):
     
@@ -61,4 +64,32 @@ def editar_perfil(request):
 class CambiarPassword(LoginRequiredMixin, PasswordChangeView):
     template_name = 'usuarios/cambiar_password.html'
     success_url = reverse_lazy('usuarios:editar_perfil')  ##cambiar redirigirse a profile.html####
+    
+
+@login_required
+def profile(request):
+    profile = request.user.get_or_create_profile()
+    if request.method == 'POST':
+        user_form = UserEditForm(request.POST, instance=request.user)
+        profile_form = ProfileEditForm(request.POST, request.FILES, instance=request.user.profile)
+        password_form = PasswordChangeForm(request.user, request.POST)
+
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+            if password_form.is_valid():
+                user = password_form.save()
+                update_session_auth_hash(request, user)  # Mantener la sesión tras cambiar la contraseña
+            return redirect('profile')
+    else:
+        user_form = UserEditForm(instance=request.user)
+        profile_form = ProfileEditForm(instance=request.user.profile)
+        password_form = PasswordChangeForm(request.user)
+
+    context = {
+        'user_form': user_form,
+        'profile_form': profile_form,
+        'password_form': password_form,
+    }
+    return render(request, 'profile.html', {'profile': profile})
     
