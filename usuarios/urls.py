@@ -8,8 +8,8 @@ app_name = 'usuarios'
 urlpatterns = [
     path('login/', views.login, name='login'),
     path('register/', views.register, name='register'),
+    path('profile/', views.profile, name='profile'),
     path('perfil/editar/', views.editar_perfil, name='editar_perfil'),
     path('perfil/editar/password/', views.CambiarPassword.as_view(), name='cambiar_password'),
-    path('perfil/editar/profile/', views.profile, name='profile'),
     path('logout/', LogoutView.as_view(template_name='usuarios/logout.html'), name='logout')
 ]

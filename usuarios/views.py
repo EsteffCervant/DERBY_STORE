@@ -55,7 +55,6 @@ def editar_perfil(request):
             datos_extra.save()
             
             formulario.save()
-            
             return redirect('inicio')
     
     return render(request, 'usuarios/editar_perfil.html', {'form': formulario})
@@ -63,7 +62,7 @@ def editar_perfil(request):
 
 class CambiarPassword(LoginRequiredMixin, PasswordChangeView):
     template_name = 'usuarios/cambiar_password.html'
-    success_url = reverse_lazy('usuarios:editar_perfil')  ##cambiar redirigirse a profile.html####
+    success_url = reverse_lazy('usuarios:editar_perfil')  
     
 
 @login_required
@@ -79,17 +78,17 @@ def profile(request):
             profile_form.save()
             if password_form.is_valid():
                 user = password_form.save()
-                update_session_auth_hash(request, user)  # Mantener la sesión tras cambiar la contraseña
-            return redirect('profile')
+                update_session_auth_hash(request, user)  
+            return redirect('usuarios:profile')
     else:
         user_form = UserEditForm(instance=request.user)
         profile_form = ProfileEditForm(instance=request.user.profile)
         password_form = PasswordChangeForm(request.user)
+        
+        return render(request, 'usuarios/profile.html', {
+            'user_form': user_form,
+            'profile_form': profile_form,
+            'password_form': password_form
+    })
 
-    context = {
-        'user_form': user_form,
-        'profile_form': profile_form,
-        'password_form': password_form,
-    }
-    return render(request, 'profile.html', {'profile': profile})
     

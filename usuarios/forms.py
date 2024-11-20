@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib.auth.models import User
-from usuarios.models import UserProfile
+from usuarios.models import DatosExtra, UserProfile
 
 
 class FormularioDeCreacionDeUsuario(UserCreationForm):
@@ -18,14 +18,14 @@ class FormularioDeCreacionDeUsuario(UserCreationForm):
 
         
 class FormularioEdicionPerfil(UserChangeForm):
-    email = forms.EmailField(label='Correo electronico')
+    email = forms.EmailField(label='Correo electrónico')
     first_name = forms.CharField(label='Nombre')
     last_name = forms.CharField(label='Apellido')
+    avatar = forms.ImageField(label='Avatar', required=False)
     password = None
-    avatar = forms.ImageField(required=False)
-    
-    class Meta():
-        model = User
+
+    class Meta:
+        model = DatosExtra
         fields = ['email', 'first_name', 'last_name', 'avatar']
         
         
