@@ -44,7 +44,7 @@ def editar_perfil(request):
     formulario = FormularioEdicionPerfil(instance=request.user, initial={'avatar': datos_extra.avatar})
     
     if request.method == 'POST':
-        formulario = FormularioEdicionPerfil(request.POST, request.FILES,instance=request.user)
+        formulario = FormularioEdicionPerfil(request.POST, request.FILES, instance=request.user)
         if formulario.is_valid():
             
             new_avatar = formulario.cleaned_data.get('avatar')
@@ -60,4 +60,5 @@ def editar_perfil(request):
 
 class CambiarPassword(LoginRequiredMixin, PasswordChangeView):
     template_name = 'usuarios/cambiar_password.html'
-    success_url = reverse_lazy('usuarios:editar_perfil')
+    success_url = reverse_lazy('usuarios:editar_perfil')  ##cambiar redirigirse a profile.html####
+    

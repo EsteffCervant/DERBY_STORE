@@ -7,6 +7,8 @@ class FormularioDeCreacionDeUsuario(UserCreationForm):
     email = forms.EmailField()
     password1 = forms.CharField(label='Contrasenia', widget=forms.PasswordInput)
     password2 = forms.CharField(label='Repetir Contrasenia', widget=forms.PasswordInput)
+    first_name = forms.CharField(label='Nombre')
+    last_name = forms.CharField(label='Apellido')
     
     class Meta:
         model = User
@@ -15,7 +17,7 @@ class FormularioDeCreacionDeUsuario(UserCreationForm):
 
         
 class FormularioEdicionPerfil(UserChangeForm):
-    email = forms.EmailField(label='Correo electrónico')
+    email = forms.EmailField(label='Correo electronico')
     first_name = forms.CharField(label='Nombre')
     last_name = forms.CharField(label='Apellido')
     password = None
