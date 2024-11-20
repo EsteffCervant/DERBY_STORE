@@ -15,7 +15,10 @@ Editar Patines
 
 {% block main %}
 <div class="mt-5">
-    <li><h2 class="text-center">Editar Patines</h2>
+    <li>
+        <p>
+        <h2 class="text-center">Editar Patines {{patines.Marca}} para {{patines.Deporte}} </h2>
+        </p>
     </li>
     <form action="{% url 'editar_patines' patines.id %}" method="POST" class="mt-4">
         {% csrf_token %}

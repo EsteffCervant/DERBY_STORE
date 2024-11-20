@@ -1,22 +1,25 @@
-{% comment "" %}
-{% extends 'base.html' %}{% endcomment %}
+{% extends "base.html" %}
 
 {% block title_head %}
 Registro
 {% endblock title_head %}
 
-{% block h1_header %}
-Registro
-{% endblock h1_header %}
+<!-- Vacía el contenido del masthead -->
+{% block main_uptext %}{% endblock main_uptext %}
+{% block categorias %}{% endblock categorias %}
+{% block vista_about %}{% endblock vista_about %}
 
 {% block main %}
-
-<form action={% url 'usuarios:register' %} method='post'>
+<p>
+</p> 
+<div class="mt-5">
+    <h2 class="text-center">Registro</h2>
+    <form action={% url 'usuarios:register' %} method='post' class="mt-5">
     {% csrf_token %}
 
     {{form}}
     <input type='submit' value='Registrarse'>
 
 </form>
-
+</div>
 {% endblock main %}

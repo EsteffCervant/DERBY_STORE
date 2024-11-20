@@ -8,7 +8,7 @@
         <meta name="author" content="" />
         <title>
             {% block title_home %}
-            Template Base
+            Derby Skates
             {% endblock title_home %}
         </title>
         <!-- Favicon-->
@@ -36,7 +36,7 @@
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
                         <li class="nav-item"><a class="nav-link" href={% url 'buscar_patines' %}>Búsqueda Patines</a></li>
                         <li class="nav-item"><a class="nav-link" href={% url 'deportes' %}>Deportes</a></li>
-                        <li class="nav-item"><a class="nav-link" href={% url 'crear_patines' %}>Patines</a></li>
+                        <li class="nav-item"><a class="nav-link" href={% url 'crear_patines' %}>Crear Patines</a></li>
                         <li class="nav-item"><a class="nav-link" href={% url 'ACCESORIOS:listado_ruedas' %}>Ruedas</a></li>
                         <li class="nav-item"><a class="nav-link" href={% url 'about_me' %}>About Me</a></li>
                         {% if request.user.is_authenticated %}
@@ -45,8 +45,8 @@
                             {{request.user.username}}
                         </a>    
                         <form action={% url 'usuarios:logout' %} method='post'>
-                            {% csrf_token %}
-                            <input type='submit' class='btn btn-primary' value='Cerrar Sesion'>
+                        {% csrf_token %}
+                        <input type='submit' class='btn btn-primary' value='Cerrar Sesion'>
                         </form>
                         {% else %}
                         <a class='btn btn-primary' href={% url 'usuarios:login' %}>Iniciar Sesion</a>

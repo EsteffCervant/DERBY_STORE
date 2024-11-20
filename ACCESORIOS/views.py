@@ -12,7 +12,7 @@ class CrearRuedas(CreateView):
     model = ruedas
     template_name = 'accesorios/crear_ruedas.html'
     success_url = reverse_lazy('ACCESORIOS:listado_ruedas')
-    fields = ['Dureza', 'Perfil', 'Compuesto', 'Talla']
+    fields = ['Dureza', 'Perfil', 'Compuesto', 'Talla', 'Fecha_carga']
     
     
 class ListadoRuedas(ListView):
