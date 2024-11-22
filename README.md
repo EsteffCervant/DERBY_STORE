@@ -1,6 +1,9 @@
 DERBY_STORE by Estefania Cervantes
 Está pensado para una página web para el trabajo interno de una tienda de productos para patinaje, dónde encontraremos Deporte, patines, ruedas y Marcas.
 
+LINK a youtube: 
+https://youtu.be/AmrcgZHzxN0
+
 Cuenta con tres apps:
 1. START: Dónde se incluye lo relacionado a Patines
 2. ACCESORIOS: Incliye accesorios: Ruedas
@@ -41,6 +44,15 @@ Marcas como:
     Riedell
     Radar
     Antik
+
+
+Usuarios:
+    Registro
+    Login
+    Cargar avatar
+    Cambiar Contraseña
+    Editar perfil: Agregar biografía y foto de perfil.
+    Logout
 
 
 
